@@ -1,0 +1,59 @@
+<!-- HTMl section for main home page -->
+<header>
+    <!-- Header file for TODO Application -->
+    <div class="todoheading">
+        <h1 style="color: rgb(10, 9, 9); ">TODO APP</h1>
+    </div>
+    </header>
+    <link rel="stylesheet"
+    href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/home.css">  
+        <div class="form_class">
+            <form action="/create_todo" method="POST">
+            <div class="desc_Class">
+                <input type="textarea" required name="desc" placeholder="What do you need to do ?"> 
+            </div>
+            <div class="select_and_input">
+                <select name="category" required>
+                    <option value="" disabled selected>Category</option>
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>Cleaning</option>
+                    <option>Others</option>
+                </select>
+                <input class="datesValues" type="date" name="dateValue" placeholder="dd/mm/yyyy" required>
+            </div>
+                <button class="buttonDesign colorGrey" id="submitButton" type="submit"><i class="fa fa-plus-square" > </i>&nbsp;&nbsp;&nbsp;ADD TASK</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;<button class="buttonDesign colorRed" id="deleteButton" type="submit"><i class="fa fa-trash-o"></i>&nbsp; DELETE TASKS</button>
+      
+            </form>
+                 
+        </div>
+
+<!-- for displaying TODO lists -->
+        <div>
+            <% for(let i of todoList) { let j=0; let newIds='descids'+j; 
+            let d='d'%>
+                <div class="singleTask">
+                    <input type="checkbox" name="delechack" class="delechack" onclick="checkedOrNot()" uid = <%= i._id %> >
+                    <div class="name_and_dueDate">
+                        <p id=<%= i._id %>  uid = <%= i._id %> class="dispdsc"><%= i.desc %></p>
+                        <p id=<%= i._id + d%> class="dueDate"><%= i.dueDate %></p>
+                    </div>
+                    <div class="catesec">
+                        <%= i.category %>
+                    </div>
+                        <div class="editClass"><a href="/editdata/?id=<%=i._id %>">Edit</a></div>
+                </div>
+                <% j++; } %>
+ 
+        </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/js/script.js"></script>
+    
+   

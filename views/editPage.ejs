@@ -1,0 +1,25 @@
+<!-- Creatd a new Edit section as a part for innovation section -->
+<link rel="stylesheet" href="/css/home.css">  
+<div class="form_class">
+    <div class="todoheading">
+        <h1 style="color: rgb(10, 9, 9); ">EDIT YOUR DETAILS</h1>
+    </div>
+<form action="/edit-todolist?id=<%= todoList._id %>" method="POST">
+    <div class="desc_Class">
+        <input type="text" name="desc"  value='<%= todoList.desc %>' >
+    </div>
+    <div class="select_and_input">
+        <select name="category">
+            <option value="" disabled selected><%= todoList.category %></option>
+            <option>Personal</option>
+            <option>Work</option>
+            <option>Cleaning</option>
+            <option>Others</option>
+    
+        </select>
+        <input type="date" required name="dueDate" value=<%= todoList.dueDate %>>
+        
+</div>
+    <button type="submit" class="edit-button"> Update</button>
+</form>
+</div>
